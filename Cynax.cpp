@@ -30,13 +30,26 @@ class toolkit {
 						cout<< "\t\t2--) Cynax Hash "<<endl;
 	
 						cout<< "\t\t3--) Cynax Firewall"<<endl;
+						
 		
-						cout<< "\t\t4--) Cynax Password Generator"<<endl<<endl;
+						cout<< "\t\t4--) Cynax Password Generator"<<endl;
+						cout<< "\t\t5--) Cynax ImageER"<<endl<<endl;
 						cout<< "\t\tEnter Your Choice : "; 
+	}
+	void interface3 (){
+						system ("cls");
+	cout<< "\t\t®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®"<<endl;
+	cout<< "\t\t          ||        ®®®         ||      "<<endl;
+	cout<< "\t\t          ||         ®          ||    "<<endl;
+	cout<< "\t\t (¯´•._.• ||Thank You For Using || •._.•´¯)"<<endl;
+	cout<< "\t\t          ||         ®          ||   "<<endl;
+	cout<< "\t\t          ||        ®®®         ||      "<<endl;
+	cout<< "\t\t®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®®"<<endl;
+	getchar();
 	}
 };
 bool sec;
-class security : toolkit {
+class security : private toolkit {
 
 	private:
 		string name,pass;
@@ -64,6 +77,7 @@ class security : toolkit {
 			return id;
 		}
 		void authentication(){
+			system ("cls");
 			int x;string p;
 			cout<< "\t\t      Wait A Minute Who Are You O_o"<<endl<<endl;
 	cout<< "\t\t 	  1 >--<> Shuja <>--< ?" <<endl;
@@ -121,14 +135,16 @@ class security : toolkit {
 			}
 	
 };
-class tools: public toolkit{
+class tools: private  toolkit{
 	public:
+		unsigned int SHF();
 		void cipher(){
-			cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << "::Welcome To Cynax Cipher Machine::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
+			
+			cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t::Welcome To Cynax Cipher Machine::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
                 cout << "\n\n\nUse(_)Underscores Instead of Blank Spaces" << endl;
 
                 cout << "Enter the message:" << endl;
@@ -136,24 +152,24 @@ class tools: public toolkit{
                 char ch;
                 string pk;
                 cin >> msg;
-
+                cout<< "Hash Of Entered Message Is : "<<SHF(msg)<<endl;
                 int i = 0, w = 5, j, choice, key;
 
                 cout << "Enter key: ";
                 cin >> pk;//take the key as input
                 if (pk == "bhai")
                 {
-                    cout << "Miki And Sufi Cipher Conversation Activated...!\n";
+                    cout << "Miki And Sufian Cipher Conversation Activated...!\n";
                     key = 5;
                 }
                 if (pk == "gamer")
                 {
-                    cout << "Miki And Shah Jee Cipher Conversation Activated...!\n";
+                    cout << "Umair And Shah Jee Cipher Conversation Activated...!\n";
                     key = 3;
                 }
                 if (pk == "capstan")
                 {
-                    cout << "Sufi And Shah Jee Cipher Conversation Activated...!\n";
+                    cout << "Sufian And Shah Jee Cipher Conversation Activated...!\n";
                     key = 7;
                 }
                 cout << "Enter your choice \n1. Encryption \n2. Decryption \n";
@@ -206,6 +222,7 @@ class tools: public toolkit{
                         }
                     }
                     cout << "Decrypted message is = \n " << msg;
+                    cout<< "Hash Of Decryped Message Is : "<<SHF(msg)<<endl;
 
 
                 }
@@ -223,11 +240,11 @@ hash = hash * magic;
 return hash;
 }
 		void hash(){
-			cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << "::Welcome To Cynax Hash Machine::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
+			cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t::Welcome To Cynax Hash Machine::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
 		char x[100];
 		cout<<endl<<"Enter Text: ";
  		cin>>x;
@@ -235,12 +252,186 @@ return hash;
   		getchar();
 			
 		}
+		char bytefromtext(unsigned char* text)
+{   
+    char result = 0;
+    for(int i=0;i<8;i++)
+    {
+        if(text[i]=='1')
+        {
+            result |= (1 << (7-i));
+        }
+    }
+    return result;
+}
+
+		void cynaximagenc()
+		{
+				cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t::   Welcome To Cynax ImageER    ::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+				int ch1;
+	cout<<"Select Any :\n1--Image To Binary\n2--Binary To Image ";cin>>ch1;
+	if (ch1==1)
+	{
+			FILE *ptr_bmp_in;
+			FILE *ptr_text_out;
+			int c;
+ 			char fn[30];
+   			 cout<<"Enter the Name of Image: ";
+   			 cin>>fn;
+
+ptr_bmp_in=fopen(fn,"rb");
+ptr_text_out=fopen("I2B.txt","w");
+
+if(!ptr_bmp_in)
+{
+    printf("Unable to open file\n");
+    
+}
+
+while((c=fgetc(ptr_bmp_in)) != EOF)
+    {
+        for(int i=0;i<=7;i++)
+        {
+            if(c&(1<<(7-i)))
+            {
+                fputc('1',ptr_text_out);
+            }
+            else
+            {
+                fputc('0',ptr_text_out);
+            }
+        }
+    }
+    cout<<"Image Coverted In Binary Form!!!";
+	}
+	else if(ch1==2)
+	{
+		FILE *ptr_txt_in;
+ 		FILE *ptr_bmp_out;
+		unsigned char buf[8];
+		int c;
+		int j = 0;
+		char FNN[30];
+   			 cout<<"Enter the Name of Binary File: ";
+   			 cin>>FNN;
+ 
+
+ptr_txt_in=fopen(FNN,"r");
+ptr_bmp_out=fopen("BinaryToImg.jpg","wb");
+
+
+if(!ptr_txt_in)
+{
+    printf("Unable to open file\n");
+   
+}
+
+while((c=fgetc(ptr_txt_in)) != EOF)
+    {
+        buf[j++] = c;
+        if(j==8)
+        {
+            fputc(bytefromtext(buf),ptr_bmp_out);
+            j=0;
+        }
+    }
+
+
+    fclose(ptr_txt_in);
+    fclose(ptr_bmp_out);
+    cout<<"Writing Done ! ! !";
+	}
+	
+
+
+    int ch;
+    cout<<"Select Any : \n1--For Encrypting The File \n2--For Decrypting The File ";cin>>ch;
+    if(ch==1)
+    {
+    	     char fileName[30], ch;
+   			 fstream fps, fpt;
+   			 cout<<"Enter the Name of File: ";
+   			 cin>>fileName;
+   		
+    fps.open(fileName, fstream::in);
+    if(!fps)
+    {
+        cout<<"\nError Occurred, Opening the Source File (to Read)!";
+     
+    }
+    fpt.open("tmp.txt", fstream::out);
+    if(!fpt)
+    {
+        cout<<"\nError Occurred, Opening/Creating the tmp File!";
+     
+    }
+    while(fps>>noskipws>>ch)
+    {
+        ch = ch+100;
+        fpt<<ch;
+    }
+    fps.close();
+    fpt.close();
+    fps.open(fileName, fstream::out);
+    if(!fps)
+    {
+        cout<<"\nError Occurred, Opening the Source File (to write)!";
+    
+    }
+    fpt.open("tmp.txt", fstream::in);
+    if(!fpt)
+    {
+        cout<<"\nError Occurred, Opening the tmp File!";
+        
+    }
+    while(fpt>>noskipws>>ch)
+        fps<<ch;
+    fps.close();
+    fpt.close();
+    cout<<"\nFile '"<<fileName<<"' Encrypted Successfully!";
+    cout<<endl;
+    
+}
+else if (ch==2)
+{
+	 char fileName[30], ch;
+    fstream fps, fpt;
+    cout<<"Enter the Name of File: ";
+    cin>>fileName;
+    fps.open(fileName, fstream::out);
+    if(!fps)
+    {
+        cout<<"\nError Occurred while Opening the Source File!";
+        
+    }
+    fpt.open("tmp.txt", fstream::in);
+    if(!fpt)
+    {
+        cout<<"\nError Occurred while Opening/Creating tmp File!";
+      
+    }
+    while(fpt>>noskipws>>ch)
+    {
+        ch = ch-100;
+        fps<<ch;
+    }
+    fps.close();
+    fpt.close();
+    cout<<"\nFile '"<<fileName<<"' Decrypted Successfully!";
+    cout<<endl;
+}
+	}
+		
 		void firewall(){
-				cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << "::  Welcome To Cynax Firewall  ::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
+				cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t::  Welcome To Cynax Firewall  ::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
 			 char site[20],ch;
     ifstream in;
     ofstream out;
@@ -288,11 +479,11 @@ return hash;
 			
 		}
 		void pg(){
-			cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << "::Welcome To Cynax Password Machine::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
-                cout << ":::::::::::::::::::::::::::::::::::" << endl;
+			cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t::Welcome To Cynax Password Machine::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
+                cout << "\t\t:::::::::::::::::::::::::::::::::::" << endl;
 	const char alphanum2[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int string_length2 = sizeof(alphanum2);
 	const char alphanum3[] = "0123456789!@#$%^&*<>;]abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -328,12 +519,17 @@ return hash;
 			
 		}
 };
-class info : public toolkit {
+class info : private toolkit {
 	public:
+		int i;
+		char x;
 	void data(){
 		
-		int i;
+	
 		system ("CLS");
+		
+		do {
+		
 		cout<< "\t\t1>>Data of Umair "<<endl;
 		cout<< "\t\t2>>Data Of Shujja"<<endl;
 		cout<< "\t\t3>>Data Of Sufian"<<endl;
@@ -347,13 +543,19 @@ class info : public toolkit {
 				if (i==3){
 			cout<< "Name : Sufian Aziz \nClass : BsCys-2B\nContact XYZ\n Occupation : Student";
 		}
+		cout<< "\nDo You Want To Continue Y/N ? "<<endl;cin>>x;
 	}
+	while (x=='Y'||x=='y');
+	
+}
 };
 int main (){
 	toolkit t1;
 	info d1;
 	security ss;
 	tools tt1;
+	char ff;
+	do {
 	t1.interface();
 	int x;
 	cin>>x;
@@ -363,10 +565,10 @@ int main (){
 	else if (x==2){
 	start:
 	ss.authentication();
+	char fch;
 	if (sec==true){
 		char ch;
 		do {
-		
 			t1.interface2();
 			int chh;
 			char ch;
@@ -375,25 +577,51 @@ int main (){
 				do {
 				
 				tt1.cipher();
-				cout<<endl<<"Use Again Y/N ? ";cin>>ch;
-			}
+				cout<<endl<<"Use Cipher Again Y/N ? ";cin>>ch;
+					}
 			while (ch=='Y'||ch=='y');
-			}
+						}
 			if (chh==2)
 			{
+				do {
+				
 					tt1.hash();
+					cout<<endl<<"Use Hash Again Y/N ? ";cin>>ch;
+				}
+				while (ch=='Y'||ch=='y');
 			}
 			if (chh==3)
 			{
+				do {
+				
 				tt1.firewall();
+					cout<<endl<<"Use Firewall Again Y/N ? ";cin>>ch;
 			}
+			while (ch=='Y'||ch=='y');
+		}
 			if (chh==4)
 			{
-			tt1.pg();	
-			}	
-			cout<<endl<<"Use Again Y/N ? ";cin>>ch;
-		}
+				do {
+				
+			tt1.pg();
+				cout<<endl<<"Use Password Generator Again Y/N ? ";cin>>ch;
+			}
 			while (ch=='Y'||ch=='y');
+		}
+					if (chh==5)
+			{
+				do {
+				
+				tt1.cynaximagenc();
+					cout<<endl<<"Use Image Encryptor Again Y/N ? ";cin>>ch;
+			}
+			while (ch=='Y'||ch=='y');
+		}
+				
+			cout<<endl<<"Use Toolkit Again Y/N ? ";cin>>fch;
+		}
+			while (fch=='Y'||fch=='y');
+		
 	
 	}
 	else  {
@@ -405,9 +633,10 @@ int main (){
 	{
 		cout << "Invalid";
 	}
+	cout<< "Restart ToolKit ? Y/N ";cin>>ff;
+	
+}
+while (ff=='y'||ff=='y');
+	t1.interface3();
 
 	}
-
-	
-
-	
